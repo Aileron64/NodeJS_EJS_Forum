@@ -1,0 +1,16 @@
+        <footer>
+                <p>&copy; <%= setting.footer %></p>
+        </footer>
+
+        <script>
+        ClassicEditor
+                .create( document.querySelector( '#message' ) )
+                .catch( error => 
+                {
+                console.error( error );
+                } );
+        </script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</body>
+</html>

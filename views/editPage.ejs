@@ -1,0 +1,14 @@
+<% include layouts/head %>
+
+    <main>
+        <h1>Edit Page</h1>
+
+        <form action="editPage<%= data.page._id %>" method="POST" enctype="multipart/form-data">              
+            <label>Name</label><input name="name" value="<%= data.page.name %>"><br>
+            <label>Content</label><textarea name="content" id="message">
+                <%- data.page.content %></textarea>
+            <input type="submit" value="Submit"> 
+        </form>
+    </main>
+
+<% include layouts/footer %>

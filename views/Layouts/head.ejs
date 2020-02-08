@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.ckeditor.com/ckeditor5/15.0.0/classic/ckeditor.js"></script>
+    <link rel="icon" type="image/ico" href="images/favicon.ico">
+    <link rel="stylesheet" href="/normalize.css" />
+    <link rel="stylesheet" href="/main.css" />
+    <% if(isAdmin) { %> <link rel="stylesheet" href="/admin.css" /> <% } %>
+    <title>JS Project</title>
+</head>
+
+<body>
+    <header>
+        <h2><%= setting.siteName %></h2>   
+            <h3><%= setting.slogan %></h3>
+
+        <nav>
+            <ul style="padding-left: 10%;">
+                <li><a href="/">Home</a></li>
+                <li><a href="/">Threads</a>
+                    <ul>
+                        <% for(var i = threads.length - 1; i >= 0; i--) { %>
+                            <li><a href="/thread<%= threads[i]._id %>"><%= threads[i].title %></a></li>
+                        <% } %>
+                    </ul>          
+                </li>
+                <!-- <li><a href="/admin/Login">Admin/Login</a></li>     -->
+
+                <% for(var i = 0; i < pages.length; i++)
+                { %>
+                    <li><a href="/page<%= pages[i]._id %>"><%= pages[i].name %></a></li>
+                <% } %>
+
+                <% if(isAdmin) { %> 
+                    <li><a href="/PageView">Edit Pages</a></li> 
+                    <li><a href="/Settings">Settings</a></li> 
+                    <li><a href="/Logout">Logout</a></li> 
+                <% } %>    
+            </ul>
+        </nav>
+    </header>

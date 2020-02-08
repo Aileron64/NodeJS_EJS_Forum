@@ -1,0 +1,15 @@
+<% include layouts/head %>
+
+    <main>      
+            <form action="/Settings" method="POST" enctype="multipart/form-data">                
+                <h1>Site Settings</h1>
+                <label>Site Name</label><input name="name" value="<%= setting.siteName %>"><br>
+                <label>Site Slogan</label><input name="slogan" value="<%= setting.slogan %>"><br>
+                <label>Footer</label><input name="footer" value="<%= setting.footer %>"><br>
+                <label>Home Page Description</label><textarea name="desc" id="message">
+                        <%- setting.homeDesc %></textarea>
+                <input type="submit" value="Update"> 
+            </form>
+    </main>
+
+<% include layouts/footer %>

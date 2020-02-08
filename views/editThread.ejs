@@ -1,0 +1,14 @@
+<% include layouts/head %>
+
+    <main>
+        <h1>Edit Thread</h1>
+
+        <form action="/editThread<%= data.thread._id %>" method="POST" enctype="multipart/form-data">              
+            <label>Title</label><input name="title" value="<%= data.thread.title %>"><br>
+            <label>Message</label><textarea name="desc" id="message">
+                <%- data.thread.desc %></textarea>
+            <input type="submit" value="Submit"> 
+        </form>
+    </main>
+
+<% include layouts/footer %>

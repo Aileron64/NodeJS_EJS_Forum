@@ -1,0 +1,17 @@
+<% include layouts/head %>
+
+    <main>
+        <h1>Edit Post</h1>
+
+        <form action="editPost<%= data.post._id %>" method="POST" enctype="multipart/form-data">              
+            <label>Name</label><input name="name" value="<%= data.post.name %>"><br>
+            <label>Image</label>
+            <input type="file" class="form-input" name="image" id="image"><br>
+
+            <label>Message</label><textarea name="message" id="message">
+                <%- data.post.message %></textarea>
+            <input type="submit" value="Submit"> 
+        </form>
+    </main>
+
+<% include layouts/footer %>

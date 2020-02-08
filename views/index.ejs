@@ -1,0 +1,32 @@
+<% include layouts/head %>
+
+    <main>
+        <%- setting.homeDesc %>
+        <br><br>
+        <input type="button" value="Create Thread" onclick="$('#createThread').fadeIn();">
+        <br><br><br><br>
+        <h1>Current Threads</h1>
+
+        <% for(var i = threads.length - 1; i >= 0; i--)
+        { %>
+            <% if(isAdmin) { %>
+                <a class="admin-button" href="/editThread<%= threads[i]._id %>">EDIT</a>
+                <a class="admin-button" href="/deleteThread<%= threads[i]._id %>">DELETE</a>      
+            <% } %>       
+
+            <a href="/thread<%= threads[i]._id %>"><thread>
+            <h3><%= threads[i].title %></h3>             
+            </thread></a>
+        <% } %>
+    </main>
+
+    <modal id="createThread" onclick="$('#createThread').fadeOut();">  
+            <form action="thread" method="POST" enctype="multipart/form-data" onclick="event.stopPropagation();">            
+                <h1>Create Thread</h1>  
+                <label>Title</label><input name="title"><br>
+                <label>Description</label><textarea name="desc" id="message"></textarea>
+                <input type="submit" value="Submit"> 
+            </form> 
+    </modal>
+
+<% include layouts/footer %>

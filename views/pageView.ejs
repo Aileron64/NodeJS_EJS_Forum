@@ -1,0 +1,28 @@
+<% include layouts/head %>
+
+<main>   
+    <h1>Extra Pages</h1> 
+    <br>
+    <input type="button" value="Create Page" onclick="$('#createPage').fadeIn();">
+    <br>
+
+    <% for(var i = 0; i < pages.length; i++)
+    { %>
+        <a class="admin-button" href="/editPage<%= pages[i]._id %>">EDIT</a>
+        <a class="admin-button" href="/deletePage<%= pages[i]._id %>">DELETE</a>      
+        <a href="/page<%= pages[i]._id %>"><thread>
+        <h3><%= pages[i].name %></h3></thread></a><br>
+    <% } %>
+
+</main>
+
+<modal id="createPage" onclick="$('#createPage').fadeOut();">  
+    <form action="page" method="POST" enctype="multipart/form-data" onclick="event.stopPropagation();">            
+        <h1>Create Page</h1>  
+        <label>Title</label><input name="name"><br>
+        <label>Content</label><textarea name="content" id="message"></textarea>
+        <input type="submit" value="Submit"> 
+    </form> 
+</modal>
+
+<% include layouts/footer %>
